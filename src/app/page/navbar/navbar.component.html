@@ -1,0 +1,7 @@
+
+<ul class="menu">
+  <li *ngFor="let menu of menus" (click)="gotoPage(menu)" title="{{menu.title}}">
+    <a class="{{menu.icon}}">{{menu.title}}</a>
+  </li>
+  <li title="Logout" (click)="logOut()"><a  class="fa fa-sign-out">Logout</a></li>
+</ul>

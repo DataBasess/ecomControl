@@ -1,0 +1,52 @@
+
+<div class="jumbotron">
+    <h5 class="display-4">จัดการหมวดหมู่สินค้า</h5>
+        <button class="btn btn-primary btn-md" (click)="gotoAdd()" ><i class="fa fa-plus"></i> เพิ่มหมวดหมู่</button>   
+    <hr class="my-4">
+    <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th width="5%"  style="text-align: center" scope="col">#</th>
+            <th width="50%" style="text-align: center" scope="col">ชื่อหมวดหมู่</th>
+            <th width="10%" style="text-align: center" scope="col">แก้ไข</th>
+            <th width="10%" style="text-align: center" scope="col">ลบ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categorys; let i = index" >
+            <th scope="row">{{i+1}}</th>
+            <td>{{category.categoryName}}</td>
+            <td><button class="btn btn-warning btn-md" (click)="gotoEdit(category)" ><i class="fa fa-edit"></i> แก้ไข</button></td>
+            <td><button class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal" (click)="set(category)" ><i class="fa fa-trash"></i> ลบ</button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">ยืนยันการลบข้อมูล</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          คุณต้องการลบ {{category.categoryName}} ใช่หรือไม่
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" (click)="remove(category)" class="btn btn-danger" data-dismiss="modal">ลบ</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>

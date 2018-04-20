@@ -1,0 +1,11 @@
+
+<div class="jumbotron">
+    <h5 class="display-4">เพิ่มหมวดหมู่สินค้า</h5>  
+    <hr class="my-4">
+    <div class="form-group">
+      <label for="exampleInputEmail1">ชื่อหมวดหมู่สินค้า</label>
+      <input type="text" class="form-control" [(ngModel)]="category.categoryName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ชื่อหมวดหมู่สินค้า">
+      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    </div>
+    <button type="button" (click)="add(category)" class="btn btn-success">บันทึก</button>
+</div>
