@@ -25,7 +25,7 @@ export class CategoryComponent implements OnInit {
   getAll(){
     this.categoryService.getAll().subscribe((data:Category[])=>{
       console.log("list",data);   
-      this.categorys = data;   
+      this.categorys = data.sort((a, b) => a.categoryId - b.categoryId);   
     })
   }
 

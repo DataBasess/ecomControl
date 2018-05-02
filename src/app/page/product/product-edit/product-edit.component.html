@@ -1,3 +1,36 @@
-<p>
-  product-edit works!
-</p>
+<div class="jumbotron">
+  <h5 class="display-4">เพิ่มสินค้า</h5>  
+  <hr class="my-4">
+  <div class="form-group">
+    <label for="exampleFormControlSelect1"  >หมวดหมู่ : {{product.categoryId.categoryName}}</label>
+    <select class="form-control" [(ngModel)]="product.categoryId"  >
+      <option *ngFor="let category of categorys" [ngValue]="category">{{category.categoryName}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">ชื่อสินค้า</label>
+    <input type="text" class="form-control" [(ngModel)]="product.productName"  aria-describedby="emailHelp" placeholder="ชื่อสินค้า">
+    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">ราคาสินค้า</label>
+    <input type="number" class="form-control" [(ngModel)]="product.productPrice"  aria-describedby="emailHelp" placeholder="999.99">
+    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">รายละเอียด</label>
+    <input type="text" class="form-control" [(ngModel)]="product.productDetail"  aria-describedby="emailHelp" placeholder="รายละเอียด">
+    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">ภาพสินค้า</label>
+    <input type="text" class="form-control" [(ngModel)]="product.productImages"  aria-describedby="emailHelp" placeholder="PNG,JPG" readonly>
+    <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
+    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->    
+  </div>
+  <div class="form-group">
+      <img *ngIf="picture!=''" [src]="picture" style="width: 40%; height: 40%;" />
+  </div>
+  
+  <button type="button" (click)="update(product)" class="btn btn-success">บันทึก</button>
+</div>

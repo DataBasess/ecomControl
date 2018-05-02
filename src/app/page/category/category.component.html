@@ -14,10 +14,10 @@
         </thead>
         <tbody>
           <tr *ngFor="let category of categorys; let i = index" >
-            <th scope="row">{{i+1}}</th>
+            <th style="text-align: center" scope="row">{{i+1}}</th>
             <td>{{category.categoryName}}</td>
-            <td><button class="btn btn-warning btn-md" (click)="gotoEdit(category)" ><i class="fa fa-edit"></i> แก้ไข</button></td>
-            <td><button class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal" (click)="set(category)" ><i class="fa fa-trash"></i> ลบ</button></td>
+            <td style="text-align: center" ><button class="btn btn-warning btn-md" (click)="gotoEdit(category)" ><i class="fa fa-edit"></i> แก้ไข</button></td>
+            <td style="text-align: center" ><button class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal" (click)="set(category)" ><i class="fa fa-trash"></i> ลบ</button></td>
           </tr>
         </tbody>
       </table>

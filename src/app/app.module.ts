@@ -9,6 +9,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
 
+// FileUploadModule
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './page/login/login.component';
@@ -20,12 +22,15 @@ import { ProductAddComponent } from './page/product/product-add/product-add.comp
 import { ProductEditComponent } from './page/product/product-edit/product-edit.component';
 import { NavbarComponent } from './page/navbar/navbar.component';
 import { CategoryServiceService } from './service/category-service.service';
+import { ProductServiceService } from './service/product-service.service';
 
 
 
 export const routes: Routes = [
   { path:'', component: LoginComponent },
   { path:'product', component: ProductComponent },
+  { path:'product-add', component: ProductAddComponent },
+  { path:'product-edit', component: ProductEditComponent },
   { path:'category', component: CategoryComponent },
   { path:'category-add', component: CategoryAddComponent },
   { path:'category-edit', component: CategoryEditComponent },
@@ -38,9 +43,9 @@ export const routes: Routes = [
     AppComponent,
     LoginComponent,
     CategoryComponent,
-    ProductComponent,
     CategoryAddComponent,
     CategoryEditComponent,
+    ProductComponent,
     ProductAddComponent,
     ProductEditComponent,
     NavbarComponent
@@ -58,9 +63,9 @@ export const routes: Routes = [
       storageBucket: "blockchain-a.appspot.com",
       messagingSenderId: "209725170616"
   }),
-  AngularFireAuthModule,
+  AngularFireAuthModule, 
   ],
-  providers: [CategoryServiceService],
+  providers: [CategoryServiceService,ProductServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

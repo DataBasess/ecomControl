@@ -5,7 +5,7 @@ import { Category } from '../model/Category';
 let root = "http://localhost:8080/api/category";
 let headers = new HttpHeaders();
 headers = headers.set('Content-Type','application/json').set('Access-Control-Allow-Origin','*')
-.set('authorization', 'Bearer ' + "token");;
+.set('authorization', 'Bearer ' + "token");
 
 @Injectable()
 export class CategoryServiceService {

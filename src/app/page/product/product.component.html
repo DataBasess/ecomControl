@@ -1,4 +1,59 @@
-<app-navbar></app-navbar>
-<div class="container">
-  
+<div class="jumbotron">
+    <h5 class="display-4">จัดการสินค้า</h5>
+        <button class="btn btn-primary btn-md" (click)="gotoAdd()" ><i class="fa fa-plus"></i> เพิ่มสินค้า</button>   
+    <hr class="my-4">
+    <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th width="5%"  style="text-align: center" scope="col">#</th>
+            <th width="20%" style="text-align: center" scope="col">ชื่อ</th>
+            <th width="30%" style="text-align: center" scope="col">รูปภาพ</th>
+            <th width="20%" style="text-align: center" scope="col">หมวดหมู่</th>
+            <th width="10%" style="text-align: center" scope="col">ราคา/$</th>
+            <th width="10%" style="text-align: center" scope="col">แก้ไข</th>
+            <th width="10%" style="text-align: center" scope="col">ลบ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products; let i = index" >
+            <th style="text-align: center" scope="row">{{i+1}}</th>
+            <td>{{product.productName}}</td>
+            <td style="text-align: center" >
+              <img src="{{product.productImages}}|async" style="width: 40%; height: 40%;" />
+            </td>
+            <td style="text-align: center" >{{product.categoryId.categoryName}}</td>
+            <td style="text-align: center" >{{product.productPrice | currency:'USD':true}}</td>
+            <td style="text-align: center" ><button class="btn btn-warning btn-md" (click)="gotoEdit(product)" ><i class="fa fa-edit"></i> แก้ไข</button></td>
+            <td style="text-align: center" ><button class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal" (click)="set(product)" ><i class="fa fa-trash"></i> ลบ</button></td>
+          </tr>
+        </tbody>
+      </table>
 </div>
+
+
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">ยืนยันการลบข้อมูล</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          คุณต้องการลบ {{product.productName}} ใช่หรือไม่
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" (click)="remove(product)" class="btn btn-danger" data-dismiss="modal">ลบ</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
